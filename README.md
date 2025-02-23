@@ -10,8 +10,21 @@
 
 本项目是一个基于AWS Lambda和大语言模型的智能运维解决方案，通过自动化的方式对Zabbix监控系统中的数据进行智能分析和预警。系统能够自动获取Zabbix监控视图，利用大语言模型进行数据理解和分析，从而实现智能化的预警机制。
 
-## 文件结构
+## 项目结构
 
+本项目包含两个主要模块：
+
+1. [Lambda函数调用模块](zabbix-function-call/README.md)
+   - 负责定时触发监控任务
+   - 支持单主机和多主机巡检
+   - 处理Lambda函数的调用参数
+
+2. [智能巡检核心模块](zabbix-intelligent-inspection/README.md)
+   - 实现监控数据采集和分析
+   - 集成大语言模型处理
+   - 提供邮件告警功能
+
+详细的文件结构如下：
 ```
 zabbix-intelligent-inspection/
 ├── README.md                 # 项目说明文档
@@ -28,50 +41,6 @@ zabbix-intelligent-inspection/
     ├── zabbix_handler.py   # Zabbix API处理
     └── templates/          # 邮件模板目录
 ```
-
-## 核心组件功能
-
-### 1. 主程序入口 (lambda_function.py)
-- 系统主入口，协调各组件工作
-- 处理主机监控数据收集
-- 触发智能分析流程
-- 处理告警邮件发送
-
-### 2. Zabbix处理模块 (zabbix_handler.py)
-- 实现与Zabbix API的交互
-- 获取监控数据和图表
-- 下载监控图表
-- 处理监控数据的格式化
-
-### 3. 大语言模型处理 (claude_handler.py)
-- 集成AWS Bedrock的Claude模型
-- 提供图像识别功能
-- 提供监控数据智能分析
-- 使用两个不同的模型：
-  - nova-lite-v1用于图像识别
-  - nova-pro-v1用于数据分析
-
-### 4. 配置管理
-- hosts_conf.ini：主机配置信息
-- zabbix_conf.ini：Zabbix服务器配置
-- config.py：配置文件加载和处理
-
-### 5. 邮件通知 (ses_handler.py)
-- 使用AWS SES服务
-- 发送告警邮件
-- 使用HTML模板格式化邮件内容
-
-## 工作流程
-
-1. Lambda函数触发后，从配置文件获取需要监控的主机列表
-2. 对每个主机：
-   - 通过Zabbix API获取监控数据和图表
-   - 使用Claude模型分析监控图表
-   - 生成智能分析报告
-3. 如果发现异常：
-   - 收集异常信息
-   - 通过SES发送告警邮件
-4. 清理临时文件并完成执行
 
 ## 场景和优势
 基于Zabbix的智能巡检解决方案能够有效应对多种监控场景，并为IT运维带来显著优势：
