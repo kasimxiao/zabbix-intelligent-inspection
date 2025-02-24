@@ -69,7 +69,7 @@ zabbix-intelligent-inspection/
 - input token = 550
 - output token = 50（平均值，绝大部分时候为巡检正常）
 - 价格 = 550/1000*0.003+50/1000*0.015 = 0.0024$
-因此一个host 巡检执行完 大致为 0.006795$ + 0.0024$ = 0.009195$
+- 因此一个host 巡检执行完 大致为 0.006795$ + 0.0024$ = 0.009195$
 ![claude price](image/claude_price.png)
 
 ###nova lite 图片信息提取，nova 按图片数量收费，建议配置选择使用800*200大小
@@ -80,6 +80,6 @@ zabbix-intelligent-inspection/
 - input token = 542
 - output token = 50（平均值，绝大部分时候为巡检正常）
 - 价格 = 542/1000*0.0008+50/1000*0.0032 = 0.0005936$
-因此一个host 巡检执行完 大致为 0.00017202$ + 0.0005936$ = 0.00076562$
+- 因此一个host 巡检执行完 大致为 0.00017202$ + 0.0005936$ = 0.00076562$
 ![nova price](image/nova_price.png)
 
