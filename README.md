@@ -64,7 +64,8 @@ zabbix-intelligent-inspection/
 - input token = 675
 - output token = 318
 - 价格 = 675/1000*0.003++318/1000*0.015 = 0.006795$
-###claude3.5 sonnet v2 指标分析
+
+### claude3.5 sonnet v2 指标分析
 - 基于日志记录数值，大体使用量为
 - input token = 550
 - output token = 50（平均值，绝大部分时候为巡检正常）
@@ -72,7 +73,7 @@ zabbix-intelligent-inspection/
 - 因此一个host 巡检执行完 大致为 0.006795$ + 0.0024$ = 0.009195$
 ![claude price](image/claude_price.png)
 
-###nova lite 图片信息提取，nova 按图片数量收费，建议配置选择使用800*200大小
+### nova lite 图片信息提取，nova 按图片数量收费，建议配置选择使用800*200大小
 - input token = 1623
 - output token = 311
 - 价格 = 1623/1000*0.00006+311/1000*0.00024 = 0.00017202$
